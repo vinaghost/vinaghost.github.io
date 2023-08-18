@@ -1,8 +1,8 @@
 ---
-title: Setup SSL for Nginx using LetsEncrypt
+title: Setup SSL for Nginx using CertBot
 date: 2023-08-18 22:24:00 +0700
 categories: [server_administrator]
-tags: [ssl, nginx, letsencrypt]
+tags: [ssl, nginx, certbot]
 ---
 
 ```console
