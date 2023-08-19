@@ -2,7 +2,7 @@
 title: Add & remove service to systemd
 date: 2023-08-18 20:04:00 +0700
 categories: [server_administrator]
-tags: [systemd, service, ubuntu]
+tags: [systemd, service, ubutu-20.04]
 ---
 
 # Add service
