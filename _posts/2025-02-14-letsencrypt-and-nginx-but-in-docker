@@ -1,0 +1,16 @@
+---
+title: Let's encrypt and nginx but in docker 
+date: 2025-02-14 15:20:00 +0700
+categories: [server_administrator]
+tags: [docker, nginx, letsencrypt, ubutu-20.04]
+---
+
+
+# Problem
+
+Nginx docker cannot read from volume "etc/letsencrypt/live", because certificate files in that folder is symlink to /archive folder
+
+# Solution
+
+Bind "etc/letsencrypt" and "etc/ssl" instead
+
