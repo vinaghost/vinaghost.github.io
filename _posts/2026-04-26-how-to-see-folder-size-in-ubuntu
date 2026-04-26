@@ -1,0 +1,33 @@
+---
+title: How to see folder size in Ubuntu 
+date: 2026-04-26 23:00:00 +0700
+categories: [server_administrator]
+tags: [ubuntu]
+---
+
+
+# Problem
+
+You forgot what command shows folder size in Ubuntu
+# Solution
+
+```bash
+sudo du -x -h -d 1 /
+```
+-d 1 = depth 1
+-h = human readable
+
+-x = exlude
+
+```
+du: cannot access `/proc/4972/task/4972/fd/4': No such file or directory
+du: cannot access `/proc/4972/task/4972/fdinfo/4': No such file or directory
+du: cannot access `/proc/4972/fd/4': No such file or directory
+du: cannot access `/proc/4972/fdinfo/4': No such file or directory
+```
+```
+/proc is a pseudo filesystem; it's a part of your RAM and contains information for every existing process. So, if a process does not exist anymore when du tries to count it, or if a process has closed a file descriptor (subdirectory fd or fdinfo) in the meantime, you get this message. You must keep in mind, that du will at first build a list of files and directories to count and later will count their sizes. Meanwhile there will be a lot of changes on your system - processes are finished, file descriptors are closed and so on.
+
+You should use the -x option of the du command to prevent it from searching mounted filesystems while examining the root partition.
+```
+Credit to [https://www.linuxquestions.org/questions/linux-general-1/du-cannot-access-%27-proc-4972-task-4972-fd-4%27-no-such-file-or-directory%27-672916/#post3294377](https://www.linuxquestions.org/questions/linux-general-1/du-cannot-access-%27-proc-4972-task-4972-fd-4%27-no-such-file-or-directory%27-672916/#post3294377)
