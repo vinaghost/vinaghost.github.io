@@ -12,8 +12,10 @@ You forgot what command shows folder size in Ubuntu
 # Solution
 
 ```bash
-sudo du -x -h -d 1 /
+sudo du -x -h -d 1 / | sort -hr
+
 ```
+sort allows a -h parameter, which allows numeric suffixes of the kind produced by du -h and -r for reverse
 -d 1 = depth 1
 -h = human readable
 
